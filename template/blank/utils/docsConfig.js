@@ -1,4 +1,4 @@
-import { Plug, RocketIcon } from 'lucide-react';
+
 
 // docsConfig controls how your documentation site sources, organizes, and displays docs content.
 // Each section below is explained in detail to help you customize it for your own project.
@@ -33,7 +33,8 @@ const docsConfig = {
   // Sidebar navigation structure for your docs
   docsPaths: [
     // Add your categories and pages here. If you forgot how they are formatted check the default config
-],
+    // Do not add a trailing .md extension to the path
+  ],
   // Per-page metadata such as author and contributors
   // If no author is specified for a page, defaultAuthor will be used
   pageMetadata: {},

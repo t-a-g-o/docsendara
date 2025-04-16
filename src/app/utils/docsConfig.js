@@ -41,9 +41,10 @@ const docsConfig = {
       iconColor: 'text-blue-500',
       // List of pages under this category
       children: [
-        { label: 'Github Configuration', path: '/getting-started/github.md' },
-        { label: 'Setup & Config', path: '/getting-started/setup-configs.md' },
-        { label: 'Authors & Contributors', path: '/getting-started/authors-contributors.md' },
+        // Do not add a trailing .md extension to the path
+        { label: 'Github Configuration', path: '/getting-started/github' },
+        { label: 'Setup & Config', path: '/getting-started/setup-configs' },
+        { label: 'Authors & Contributors', path: '/getting-started/authors-contributors' },
       ],
     },
     {
@@ -51,7 +52,6 @@ const docsConfig = {
       icon: Plug,
       iconColor: 'text-green-500',
       children: [
-        // The markdown extension is added if you forget it
         { label: 'Netlify', path: '/integration/netlify' },
         { label: 'Vercel', path: '/integration/vercel' },
       ],
@@ -61,11 +61,11 @@ const docsConfig = {
   // Per-page metadata such as author and contributors
   // If no author is specified for a page, defaultAuthor will be used
   pageMetadata: {
-    'getting-started/authors-contributors.md': {
+    'getting-started/authors-contributors': {
       // List of contributors to the page
       contributors: [{ name: 'Jane', github: 'jane' }],
       // Main author of the page
-      author: { name: 'John', github: 'johndoe' },
+      authors: [{ name: 'John', github: 'johndoe' }, { name: 'tago', github: 't-a-g-o' }],
     },
   },
 };
