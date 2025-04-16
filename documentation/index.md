@@ -1,23 +1,19 @@
-# Welcome to Docsendara
+# Introduction to Docsendara
 
-Docsendara is a modern, GitHub-powered documentation engine designed for teams and projects that want beautiful, fast, and maintainable docs with minimal configuration. It fetches, caches, and renders Markdown documentation directly from your GitHub repository, supporting advanced navigation, author/contributor metadata, and flexible sidebar configuration.
+Docsendara is a documentation engine that lets you serve, edit, and manage docs directly from your GitHub repository with minimal setup. It is designed for fast, beautiful, and collaborative documentation.
 
-## Key Features
-- **GitHub-native:** Reads docs from any branch, repo, or subdirectory.
-- **Automatic Caching:** Fast loads, even for large doc sets.
-- **Dynamic Sidebar:** Configurable navigation structure.
-- **Author/Contributor Metadata:** Show who wrote or contributed to each page.
-- **Edit & Issue Links:** One-click to edit docs or report issues on GitHub.
-- **Responsive & Modern UI:** Beautiful out of the box.
+## What You Get
+- **Live Markdown Rendering**: Docs are fetched and rendered from your GitHub repo.
+- **Easy Editing**: Edit any page on GitHub with a single click.
+- **Customizable Navigation**: Sidebar and topnav are driven by simple config files.
+- **Author & Contributor Info**: Show who wrote or contributed to each page.
 
-## Getting Started
-- See [Getting Started](./getting-started/introduction.md) for a walkthrough.
-- See [Setup & Config](./getting-started/setup-configs.md) for detailed configuration.
-- See [GitHub Integration](./getting-started/github.md) for repo and token setup.
+## How It Works
+1. **Configure your repo**: Point Docsendara to your GitHub repo and docs folder.
+2. **Write docs in Markdown**: Organize content in folders and files as you like.
+3. **Edit config files**: Control sidebar, nav, and metadata in `src/app/utils/docsConfig.js` and `navConfig.js`.
+4. **Browse and search**: Use the sidebar or topnav to explore your docs.
 
----
-
-For advanced configuration and tips, explore the sidebar or jump to a section below:
-- [Sidebar & Navigation](./getting-started/sidebar.md)
-- [Customizing Appearance](./getting-started/customization.md)
-- [FAQ](./faq.md)
+## Next Steps
+- [GitHub Configuration](./github.md)
+- [Setup & Config](./setup-configs.md)

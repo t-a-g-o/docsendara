@@ -6,7 +6,7 @@ const docsConfig = {
   // Navigation bar text settings
   navBarText: {
     titleBread: 'Docsendara Engine',
-    headerBread: 'Welcome',
+    headerBread: 'Docs',
   },
   // GitHub repository settings for sourcing documentation content
   github: {
