@@ -3,10 +3,10 @@
 import React from 'react';
 import { MarkdownRenderer, extractHeadings } from './utils/contentRenderer';
 import clsx from 'clsx';
+import styleConfig from './utils/styleConfig';
+import docsConfig from './utils/docsConfig';
 
 const DOCSVERSION = '1.0';
-
-import docsConfig from './utils/docsConfig';
 
 function TableOfContents({ content, pageMetadata }) {
   const headings = extractHeadings(content);
@@ -23,8 +23,15 @@ function TableOfContents({ content, pageMetadata }) {
   }
 
   return (
-    <div className="hidden lg:block sticky w-72 ml-8">
-      <div className="rounded-lg bg-gradient-to-b from-white/[0.08] to-white/[0.02] backdrop-blur-sm border border-white/10 p-4 space-y-6">
+<div className={clsx('hidden lg:block sticky w-72', styleConfig.spacing.sidebar)}>
+      <div className={clsx(
+        styleConfig.radius.card,
+        styleConfig.colors.sidebar,
+        'backdrop-blur-sm',
+        styleConfig.colors.border,
+        styleConfig.spacing.card,
+        'space-y-6'
+      )}>
         {/* Quick Info Section */}
         {pageMetadata && (
           <div className="space-y-4 pb-4 border-b border-white/10">
@@ -32,7 +39,7 @@ function TableOfContents({ content, pageMetadata }) {
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-[10px] uppercase tracking-wider text-white/50 font-medium">
-                  Authors
+                  Author{authors.length > 1 && 's'}
                 </span>
                 <div className="h-px flex-1 bg-gradient-to-r from-purple-500/20 to-transparent" />
               </div>
@@ -44,7 +51,15 @@ function TableOfContents({ content, pageMetadata }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     title={`Author: ${author.name}`}
-                    className="inline-flex items-center gap-1.5 px-2 py-1 text-xs text-white/90 hover:text-white rounded-md bg-gradient-to-b from-purple-500/20 to-purple-500/10 hover:from-purple-500/30 hover:to-purple-500/20 transition-all duration-150"
+                    className={clsx(
+                      'inline-flex items-center gap-1.5 px-2 py-1',
+                      styleConfig.font.sizes.small,
+                      'text-white/90 hover:text-white',
+                      styleConfig.radius.badge,
+                      styleConfig.colors.authorBadge,
+                      'hover:from-purple-500/30 hover:to-purple-500/20',
+                      styleConfig.transitions.default
+                    )}
                   >
                     <img
                       src={`https://github.com/${author.github}.png`}
@@ -59,7 +74,7 @@ function TableOfContents({ content, pageMetadata }) {
                 <>
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] uppercase tracking-wider text-white/50 font-medium">
-                      Contributors
+                      Contributor{pageMetadata.contributors.length > 1 && 's'}
                     </span>
                     <div className="h-px flex-1 bg-gradient-to-r from-blue-500/20 to-transparent" />
                   </div>
@@ -112,11 +127,8 @@ function TableOfContents({ content, pageMetadata }) {
           </div>
         )}
         <span className="relative group">
-          <span className="text-[8px] uppercase tracking-wider cursor-help text-white/50 font-medium border-b border-dotted">
-            Docs v{DOCSVERSION}
-          </span>
-          <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-64 -translate-x-1/2 rounded bg-neutral-900 px-3 py-2 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100 border border-white/10 shadow-lg">
-            Powered by Docsendara Engine.
+          <span className="text-[8px] uppercase tracking-wider text-white/50 font-medium">
+            v{DOCSVERSION}
           </span>
         </span>
       </div>

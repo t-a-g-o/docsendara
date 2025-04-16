@@ -37,7 +37,8 @@ export default function DocsLayout({ children }) {
                       const formattedPart = part
                         .split('-')
                         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                        .join(' ');
+                        .join(' ')
+                        .replace(/\.md$/, '');
                       return (
                         <React.Fragment key={part}>
                           <span>/</span>
@@ -55,8 +56,7 @@ export default function DocsLayout({ children }) {
                     let href = btn.href;
                     if (btn.goToEditPage) {
                       const docsConfig = require('./utils/docsConfig').default;
-                      const pathname =
-                        typeof window !== 'undefined' ? window.location.pathname : '';
+                      // Use the Next.js router pathname (SSR-safe)
                       let relPath = pathname.replace(/^\/docsendara/, '');
                       if (relPath === '' || relPath === '/') relPath = '/index';
                       relPath = relPath.replace(/\/$/, '');

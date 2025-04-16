@@ -1,4 +1,4 @@
-import { RocketIcon } from 'lucide-react';
+import { Plug, RocketIcon } from 'lucide-react';
 
 // docsConfig controls how your documentation site sources, organizes, and displays docs content.
 // Each section below is explained in detail to help you customize it for your own project.
@@ -41,8 +41,19 @@ const docsConfig = {
       iconColor: 'text-blue-500',
       // List of pages under this category
       children: [
-        { label: 'Github Configuration', path: '/getting-started/github' },
-        { label: 'Setup & Config', path: '/getting-started/setup-configs' },
+        { label: 'Github Configuration', path: '/getting-started/github.md' },
+        { label: 'Setup & Config', path: '/getting-started/setup-configs.md' },
+        { label: 'Authors & Contributors', path: '/getting-started/authors-contributors.md' },
+      ],
+    },
+    {
+      label: 'Integrations',
+      icon: Plug,
+      iconColor: 'text-green-500',
+      children: [
+        // The markdown extension is added if you forget it
+        { label: 'Netlify', path: '/integration/netlify' },
+        { label: 'Vercel', path: '/integration/vercel' },
       ],
     },
     // Add more categories and pages as needed
@@ -50,20 +61,12 @@ const docsConfig = {
   // Per-page metadata such as author and contributors
   // If no author is specified for a page, defaultAuthor will be used
   pageMetadata: {
-    // Key is the path (without leading slash) to the doc page
-    'getting-started/github': {
+    'getting-started/authors-contributors.md': {
       // List of contributors to the page
       contributors: [{ name: 'Jane', github: 'jane' }],
       // Main author of the page
       author: { name: 'John', github: 'johndoe' },
     },
-    'getting-started/setup-configs': {
-      // List of contributors to the page8
-      contributors: [{ name: 'Jane', github: 'jane' }],
-      // Main author of the page
-      author: { name: 'John', github: 'johndoe' },
-    },
-    // Add more entries for other pages as needed
   },
 };
 

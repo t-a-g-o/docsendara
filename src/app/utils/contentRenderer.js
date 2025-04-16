@@ -4,6 +4,8 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import styleConfig from './styleConfig';
+import clsx from 'clsx';
 
 export function extractHeadings(content) {
   const headings = [];
@@ -30,43 +32,68 @@ export function MarkdownRenderer({ content }) {
       components={{
         h1: ({ node, ...props }) => (
           <h1
-            className="text-4xl font-display font-bold text-white mb-4 leading-tight"
+            className={clsx(
+              styleConfig.font.sizes.h1,
+              styleConfig.font.family,
+              styleConfig.font.weights.bold,
+              styleConfig.colors.text.primary,
+              'mb-4 leading-tight'
+            )}
             {...props}
           />
         ),
         h2: ({ node, ...props }) => (
           <h2
             id={props.children.toString().toLowerCase().replace(/\s+/g, '-')}
-            className="text-2xl font-semibold text-white mt-12 mb-4 scroll-mt-24 flex items-center gap-2"
+            className={clsx(
+              styleConfig.font.sizes.h2,
+              styleConfig.font.weights.semibold,
+              styleConfig.colors.text.primary,
+              'mt-12 mb-4 scroll-mt-24 flex items-center gap-2'
+            )}
             {...props}
           />
         ),
         h3: ({ node, ...props }) => (
           <h3
             id={props.children.toString().toLowerCase().replace(/\s+/g, '-')}
-            className="text-xl font-semibold text-white/90 mt-8 mb-3 scroll-mt-24 flex items-center gap-2"
+            className={clsx(
+              styleConfig.font.sizes.h3,
+              styleConfig.font.weights.semibold,
+              'text-white/90',
+              'mt-8 mb-3 scroll-mt-24 flex items-center gap-2'
+            )}
             {...props}
           />
         ),
         p: ({ node, ...props }) => (
           <p
-            className="text-gray-300 leading-relaxed mb-4 whitespace-normal break-words"
+            className={clsx(
+              styleConfig.colors.text.secondary,
+              'leading-relaxed mb-4 whitespace-normal break-words'
+            )}
             {...props}
           />
         ),
         ul: ({ node, ...props }) => (
           <ul
-            className="my-6 ml-6 list-disc marker:text-gray-500 space-y-2 text-gray-300"
+            className={clsx(
+              'my-6 ml-6 list-disc marker:text-gray-500 space-y-2',
+              styleConfig.colors.text.secondary
+            )}
             {...props}
           />
         ),
         ol: ({ node, ...props }) => (
           <ol
-            className="my-6 ml-6 list-decimal marker:text-gray-500 space-y-2 text-gray-300"
+            className={clsx(
+              'my-6 ml-6 list-decimal marker:text-gray-500 space-y-2',
+              styleConfig.colors.text.secondary
+            )}
             {...props}
           />
         ),
-        li: ({ node, ...props }) => <li className="leading-relaxed" {...props} />,
+        li: ({ node, ...props }) => <li className={clsx('leading-relaxed')} {...props} />,
         code: ({ node, inline, className, children, ...props }) => {
           const match = /language-(\w+)/.exec(className || '');
           const language = match ? match[1] : '';
