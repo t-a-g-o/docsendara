@@ -4,7 +4,7 @@
     <p>
         <img src="https://img.shields.io/github/last-commit/t-a-g-o/docsendara" alt="Last Commit">
         <img src="https://img.shields.io/github/issues-raw/t-a-g-o/docsendara" alt="Issues">
-        <a href="./LICENSE"><img src="https://img.shields.io/badge/license-CC%20BY--NC%201.0-green" alt="License"></a>
+        <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
     </p>
 </div>
 
